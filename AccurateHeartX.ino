@@ -229,6 +229,7 @@ void emptyCrosshair(){
     tv.delay_frame(1);
     tv.print(17, 87, textpuremode);
     delay(30);
+    delay(1000);
     }
   }
 
