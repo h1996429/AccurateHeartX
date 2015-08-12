@@ -1,2 +1,4 @@
 # AccurateHeartX
-add accurate heart to your any screen，mostly for DIY a Thermal Imaging Systerm
+Add accurate heart to your any screen，mostly for DIY a Thermal Imaging Systerm.
+
+Throw folders TVout and TVoutfonts into the library of Arduino.
