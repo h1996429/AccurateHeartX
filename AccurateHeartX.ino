@@ -155,7 +155,7 @@ void drawCrosshair(){
 void defaultCrosshair() {
   if(crosshairchange == 1){
   tv.draw_line(oldCrosshairX+27,oldCrosshairY,W,oldCrosshairY, 0);
-  tv.draw_line(oldCrosshairX-27,oldCrosshairY,0,oldCrosshairY, 0);
+  tv.draw_line(oldCrosshairX-26,oldCrosshairY,0,oldCrosshairY, 0);
   tv.draw_line(oldCrosshairX,oldCrosshairY+27,oldCrosshairX,H, 0);
   tv.draw_line(oldCrosshairX,oldCrosshairY-27,oldCrosshairX,0, 0);
   drawbmp(oldCrosshairX-26, oldCrosshairY-26, bmp1,0,0,0);
@@ -174,8 +174,8 @@ void defaultCrosshair() {
 
 void Crosshair2() {
   tv.draw_line(oldCrosshairX,oldCrosshairY,oldCrosshairX,H, 0);  
-  tv.draw_line(oldCrosshairX+1,oldCrosshairY+1,oldCrosshairX,H, 0); 
-  tv.draw_line(oldCrosshairX-1,oldCrosshairY+1,oldCrosshairX,H, 0);
+  tv.draw_line(oldCrosshairX+1,oldCrosshairY+1,oldCrosshairX+1,H, 0); 
+  tv.draw_line(oldCrosshairX-1,oldCrosshairY+1,oldCrosshairX-1,H, 0);
   tv.draw_line(oldCrosshairX+16,oldCrosshairY,W,oldCrosshairY, 0);
   tv.draw_line(oldCrosshairX-16,oldCrosshairY,0,oldCrosshairY, 0);
 
@@ -211,8 +211,8 @@ void Crosshair3() {
 
   tv.draw_line(oldCrosshairX-20,oldCrosshairY-2,oldCrosshairX-20,oldCrosshairY-5, 0);
   tv.draw_line(oldCrosshairX-20,oldCrosshairY+2,oldCrosshairX-20,oldCrosshairY+5, 0);
-  tv.draw_line(oldCrosshairX+20,oldCrosshairY-2,oldCrosshairX-20,oldCrosshairY-5, 0);
-  tv.draw_line(oldCrosshairX+20,oldCrosshairY+2,oldCrosshairX-20,oldCrosshairY+5, 0);
+  tv.draw_line(oldCrosshairX+20,oldCrosshairY-2,oldCrosshairX+20,oldCrosshairY-5, 0);
+  tv.draw_line(oldCrosshairX+20,oldCrosshairY+2,oldCrosshairX+20,oldCrosshairY+5, 0);
   tv.draw_line(oldCrosshairX-2,oldCrosshairY-20,oldCrosshairX-5,oldCrosshairY-20, 0);
   tv.draw_line(oldCrosshairX+2,oldCrosshairY-20,oldCrosshairX+5,oldCrosshairY-20, 0);
   tv.draw_line(oldCrosshairX-2,oldCrosshairY+20,oldCrosshairX-5,oldCrosshairY+20, 0);
@@ -256,7 +256,7 @@ void Crosshair3() {
 void Crosshair4() {
   if(crosshairchange == 1){  
   tv.draw_line(oldCrosshairX+27,oldCrosshairY,W,oldCrosshairY, 0);
-  tv.draw_line(oldCrosshairX-27,oldCrosshairY,0,oldCrosshairY, 0);
+  tv.draw_line(oldCrosshairX-26,oldCrosshairY,0,oldCrosshairY, 0);
   tv.draw_line(oldCrosshairX,oldCrosshairY+27,oldCrosshairX,H, 0);
   tv.draw_line(oldCrosshairX,oldCrosshairY-27,oldCrosshairX,0, 0);
   drawbmp(oldCrosshairX-26, oldCrosshairY-26, bmp4,0,0,0);
