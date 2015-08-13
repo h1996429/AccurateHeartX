@@ -19,7 +19,6 @@ byte cleandraw = 0;
 int DeviationX = 0;
 int DeviationY = 0;
 unsigned long duration;
-char zi[] = "... PURE MODE ...";
 
 void setup() {
   changeInputStandard();//切换输入制式需要关机后拨动开关，默认开关低电平为NTSC制式
@@ -84,8 +83,8 @@ ISR(INT1_vect){
    delay(10);
     if(digitalRead(3)==LOW)
      {
-       duration = pulseIn(3, LOW);
-       if(duration<=2000000){
+       duration = pulseIn(3, LOW, 10000000);
+       if(duration<=2000000 && duration>0){
          if(switchCrosshair>=1&&switchCrosshair<CROSSHAIRNUM)
            switchCrosshair++;
            else if(switchCrosshair==CROSSHAIRNUM)
@@ -105,6 +104,9 @@ ISR(INT1_vect){
            tv.delay_frame(1);
        }
        //长按5秒进入校准
+       else if(duration==0){
+        
+       }
             while(digitalRead(3)==LOW)
            {
             delay(1);
@@ -322,13 +324,11 @@ void Crosshair7() {
 }
 
 void emptyCrosshair(){
- // if(textloop == 0){
- //   textloop++;
- //   tv.delay_frame(1);
-    tv.print(17, 87, zi);
-    tv.print(17, 30, textpuremode);
-    delay(1000);
- //   }
+  if(textloop == 0){
+    textloop++;
+    tv.print(17, 87, textpuremode);
+    delay(2000);
+    }
   }
 
 void getPotentiometer(){
