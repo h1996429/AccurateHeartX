@@ -19,6 +19,7 @@ byte cleandraw = 0;
 int DeviationX = 0;
 int DeviationY = 0;
 unsigned long duration;
+char zi[] = "... PURE MODE ...";
 
 void setup() {
   changeInputStandard();//切换输入制式需要关机后拨动开关，默认开关低电平为NTSC制式
@@ -324,7 +325,8 @@ void emptyCrosshair(){
  // if(textloop == 0){
  //   textloop++;
  //   tv.delay_frame(1);
-    tv.print(17, 87, textpuremode);
+    tv.print(17, 87, zi);
+    tv.print(17, 30, textpuremode);
     delay(1000);
  //   }
   }
