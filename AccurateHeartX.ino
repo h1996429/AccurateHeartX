@@ -15,6 +15,7 @@ byte crosshairX, crosshairY;
 byte switchCrosshair = 1;
 byte textloop = 0;
 byte crosshairchange = 0;
+byte cleandraw = 0;
 int DeviationX = 0;
 int DeviationY = 0;
 unsigned long duration;
@@ -89,6 +90,7 @@ ISR(INT1_vect){
            else if(switchCrosshair==CROSSHAIRNUM)
            switchCrosshair=1;
            EEPROM.update(0, switchCrosshair);
+           cleandraw = 1;
            tv.fill(0);
            delay(10);
        }//短按进入切换准心
@@ -111,6 +113,10 @@ ISR(INT1_vect){
 
 void loop() {
   drawCrosshair();
+  if(cleandraw==1){
+  tv.fill(0);
+  cleandraw = 0;
+  }
   tv.delay_frame(1);
   getPotentiometer();
   
@@ -315,12 +321,12 @@ void Crosshair7() {
 }
 
 void emptyCrosshair(){
-  if(textloop = 0){
-    textloop++;
-    tv.delay_frame(1);
+  //if(textloop = 0){
+  //  textloop++;
+  //  tv.delay_frame(1);
     tv.print(17, 87, textpuremode);
     delay(1000);
-    }
+ //   }
   }
 
 void getPotentiometer(){
