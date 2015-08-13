@@ -83,17 +83,19 @@ ISR(INT1_vect){
     if(digitalRead(3)==LOW)
      {
        duration = pulseIn(3, LOW);
-       if(duration<=2000){
+       if(duration<=2000000){
          if(switchCrosshair>=1&&switchCrosshair<CROSSHAIRNUM)
            switchCrosshair++;
            else if(switchCrosshair==CROSSHAIRNUM)
            switchCrosshair=1;
            EEPROM.update(0, switchCrosshair);
+           tv.delay_frame(1);
            tv.fill(0);
+           tv.delay_frame(1);
            delay(10);
        }//短按进入切换准心
        
-       else if(duration>=5000){
+       else if(duration>=5000000){
            DeviationY=511-analogRead(A0);
            DeviationX=511-analogRead(A1);
            EEPROM.write(1,DeviationX);
