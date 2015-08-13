@@ -89,7 +89,6 @@ ISR(INT1_vect){
            else if(switchCrosshair==CROSSHAIRNUM)
            switchCrosshair=1;
            EEPROM.update(0, switchCrosshair);
-           tv.delay_frame(1);
            tv.fill(0);
            tv.delay_frame(1);
            delay(10);
