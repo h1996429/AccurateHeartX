@@ -90,8 +90,8 @@ ISR(INT1_vect){
            switchCrosshair=1;
            EEPROM.update(0, switchCrosshair);
            tv.delay_frame(1);
-           tv.fill(0);
            delay(10);
+           tv.fill(0);
        }//短按进入切换准心
        
        else if(duration>=5000){
