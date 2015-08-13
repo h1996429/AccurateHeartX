@@ -321,12 +321,12 @@ void Crosshair7() {
 }
 
 void emptyCrosshair(){
-  if(textloop == 0){
-    textloop++;
-    tv.delay_frame(1);
+ // if(textloop == 0){
+ //   textloop++;
+ //   tv.delay_frame(1);
     tv.print(17, 87, textpuremode);
     delay(1000);
-    }
+ //   }
   }
 
 void getPotentiometer(){

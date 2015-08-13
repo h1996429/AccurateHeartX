@@ -2,5 +2,5 @@
 # ifndef TEXT_H
 # define TEXT_H
 
-extern const char textpuremode[];
+extern char textpuremode[];
 #endif
