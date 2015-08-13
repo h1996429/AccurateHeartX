@@ -79,12 +79,36 @@ ISR(INT0_vect) {
 }
 
 ISR(INT1_vect){
-   Keystroke();
+   delay(10);
+    if(digitalRead(3)==LOW)
+     {
+       duration = pulseIn(3, LOW);
+       if(duration<=2000000){
+         if(switchCrosshair>=1&&switchCrosshair<7)
+           switchCrosshair++;
+           else if(switchCrosshair==7)
+           switchCrosshair=1;
+           EEPROM.update(0, switchCrosshair);
+           tv.fill(0);
+           delay(10);
+       }//短按进入切换准心
+       
+       else if(duration>=5000000){
+           DeviationY=511-analogRead(A0);
+           DeviationX=511-analogRead(A1);
+           EEPROM.write(1,DeviationX);
+           EEPROM.write(2,DeviationY);//电位器输出的偏移值
+           delay(10);
+       }
+       //长按5秒进入校准
+                  while(digitalRead(3)==LOW)
+           {
+            delay(1);
+           }
+     }
 }
 
 void loop() {
-  InitAccurateHeart();
-  funswitchCrosshair();
   drawCrosshair();
   tv.delay_frame(1);
   getPotentiometer();
@@ -322,44 +346,17 @@ void changeInputStandard()
  else if(digitalRead(4)==LOW) 
  tv.begin(PAL, W, H);
 }
-
- void Keystroke(){
-  delay(10);
-    if(digitalRead(3)==LOW)
-     {
-       duration = pulseIn(3, LOW);
-       if(duration<=2000000)
-       funswitchCrosshair();
-       else if(duration>=5000000)
-       InitAccurateHeart();//长按5秒进入校准
-                  while(digitalRead(3)==LOW)
-           {
-            delay(1);
-           }
-     }
- }
- 
  
  void funswitchCrosshair()
    {
-           if(switchCrosshair>=1&&switchCrosshair<7)
-           {switchCrosshair++;}
-           else if(switchCrosshair==7)
-           {switchCrosshair=1;}
-           EEPROM.update(0, switchCrosshair);
-           tv.fill(0);
-           delay(10);    
+    
     }
 
  void InitAccurateHeart()
    {
-           DeviationY=511-analogRead(A0);
-           DeviationX=511-analogRead(A1);
-           EEPROM.write(1,DeviationX);
-           EEPROM.write(2,DeviationY);//电位器输出的偏移值
-           delay(10);      
-    }
 
+      
+    }
 void drawbmp(int x, int y, const unsigned char * bmp,
            uint16_t i, uint8_t width, uint8_t lines) {
 
