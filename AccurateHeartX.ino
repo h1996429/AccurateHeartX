@@ -139,6 +139,9 @@ void drawCrosshair(){
             Crosshair6();
             break;
      case 7:switchCrosshair==7;
+            Crosshair7();
+            break;            
+     case CROSSHAIRNUM:switchCrosshair==CROSSHAIRNUM;
             emptyCrosshair();
             break;
     }
@@ -228,8 +231,8 @@ void Crosshair3() {
 
   tv.draw_line(crosshairX-8,crosshairY-1,crosshairX-8,crosshairY-3, 1);
   tv.draw_line(crosshairX-8,crosshairY+1,crosshairX-8,crosshairY+3, 1);
-  tv.draw_line(crosshairX+8,crosshairY-1,crosshairX-8,crosshairY-3, 1);
-  tv.draw_line(crosshairX+8,crosshairY+1,crosshairX-8,crosshairY+3, 1);
+  tv.draw_line(crosshairX+8,crosshairY-1,crosshairX+8,crosshairY-3, 1);
+  tv.draw_line(crosshairX+8,crosshairY+1,crosshairX+8,crosshairY+3, 1);
   tv.draw_line(crosshairX-1,crosshairY-8,crosshairX-1,crosshairY-8, 1);
   tv.draw_line(crosshairX+1,crosshairY-8,crosshairX+1,crosshairY-8, 1);
   tv.draw_line(crosshairX-1,crosshairY+8,crosshairX-1,crosshairY+8, 1);
@@ -302,6 +305,14 @@ void Crosshair6() {
   tv.set_pixel(crosshairX, crosshairY, 1);
   tv.draw_circle(crosshairX,crosshairY,16,1);
   
+}
+
+void Crosshair7() {
+  tv.draw_line(oldCrosshairX,oldCrosshairY,oldCrosshairX-3,oldCrosshairY+3, 0);
+  tv.draw_line(oldCrosshairX+1,oldCrosshairY+1,oldCrosshairX+3,oldCrosshairY+3, 0);
+  
+  tv.draw_line(crosshairX,crosshairY,crosshairX-3,crosshairY+3, 1);
+  tv.draw_line(crosshairX+1,crosshairY+1,crosshairX+3,crosshairY+3, 1);
 }
 
 void emptyCrosshair(){

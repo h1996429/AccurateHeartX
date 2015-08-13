@@ -9,7 +9,7 @@
 #define MAXX (W-4)
 #define MINY 3
 #define MAXY (H-4)
-#define CROSSHAIRNUM 7
+#define CROSSHAIRNUM 8
 
 
 int oldvalX,oldvalY,valX,valY;
