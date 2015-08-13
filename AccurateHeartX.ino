@@ -161,7 +161,7 @@ void defaultCrosshair() {
   drawbmp(oldCrosshairX-26, oldCrosshairY-26, bmp1,0,0,0);
   }
   tv.draw_line(crosshairX+27,crosshairY,W,crosshairY, 1);
-  tv.draw_line(crosshairX-27,crosshairY,0,crosshairY, 1);
+  tv.draw_line(crosshairX-26,crosshairY,0,crosshairY, 1);
   tv.draw_line(crosshairX,crosshairY+27,crosshairX,H, 1);
   tv.draw_line(crosshairX,crosshairY-27,crosshairX,0, 1);
   drawbmp(crosshairX-26, crosshairY-26, bmp1,0,0,0);
@@ -180,17 +180,17 @@ void Crosshair2() {
   tv.draw_line(oldCrosshairX-16,oldCrosshairY,0,oldCrosshairY, 0);
 
   tv.draw_line(crosshairX,crosshairY,crosshairX,H, 1);
-  tv.draw_line(crosshairX+1,crosshairY+1,crosshairX,H, 1);
-  tv.draw_line(crosshairX-1,crosshairY+1,crosshairX,H, 1);
+  tv.draw_line(crosshairX+1,crosshairY+1,crosshairX+1,H, 1);
+  tv.draw_line(crosshairX-1,crosshairY+1,crosshairX-1,H, 1);
   tv.draw_line(crosshairX+16,crosshairY,W,crosshairY, 1);
   tv.draw_line(crosshairX-16,crosshairY,0,crosshairY, 1);
 }
 
 void Crosshair3() {
-  tv.draw_line(oldCrosshairX-2,oldCrosshairY,0,oldCrosshairY, 1);
-  tv.draw_line(oldCrosshairX+2,oldCrosshairY,W,oldCrosshairY, 1);
-  tv.draw_line(oldCrosshairX,oldCrosshairY-2,oldCrosshairX,0, 1);
-  tv.draw_line(oldCrosshairX,oldCrosshairY+2,oldCrosshairX,H, 1);
+  tv.draw_line(oldCrosshairX-2,oldCrosshairY,0,oldCrosshairY, 0);
+  tv.draw_line(oldCrosshairX+2,oldCrosshairY,W,oldCrosshairY, 0);
+  tv.draw_line(oldCrosshairX,oldCrosshairY-2,oldCrosshairX,0, 0);
+  tv.draw_line(oldCrosshairX,oldCrosshairY+2,oldCrosshairX,H, 0);
   tv.draw_line(oldCrosshairX+20,oldCrosshairY+1,W,oldCrosshairY+1, 0);
   tv.draw_line(oldCrosshairX+20,oldCrosshairY-1,W,oldCrosshairY-1, 0);
   tv.draw_line(oldCrosshairX-20,oldCrosshairY+1,0,oldCrosshairY+1, 0);
@@ -262,7 +262,7 @@ void Crosshair4() {
   drawbmp(oldCrosshairX-26, oldCrosshairY-26, bmp4,0,0,0);
   }
   tv.draw_line(crosshairX+27,crosshairY,W,crosshairY, 1);
-  tv.draw_line(crosshairX-27,crosshairY,0,crosshairY, 1);
+  tv.draw_line(crosshairX-26,crosshairY,0,crosshairY, 1);
   tv.draw_line(crosshairX,crosshairY+27,crosshairX,H, 1);
   tv.draw_line(crosshairX,crosshairY-27,crosshairX,0, 1);
   drawbmp(crosshairX-26, crosshairY-26, bmp4,0,0,0);
@@ -321,12 +321,12 @@ void Crosshair7() {
 }
 
 void emptyCrosshair(){
-  //if(textloop = 0){
-  //  textloop++;
-  //  tv.delay_frame(1);
+  if(textloop = 0){
+    textloop++;
+    tv.delay_frame(1);
     tv.print(17, 87, textpuremode);
     delay(1000);
- //   }
+    }
   }
 
 void getPotentiometer(){
