@@ -1,4 +1,4 @@
 # AccurateHeartX
-Add accurate heart to your any screen，mostly for DIY a Thermal Imaging Systerm.
+Add crosshair to your any screen，mostly for DIY a Thermal Imaging Systerm.
 
 Throw folders TVout and TVoutfonts into the library of Arduino.
