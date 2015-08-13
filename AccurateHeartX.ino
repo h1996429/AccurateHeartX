@@ -49,7 +49,7 @@ void setup() {
   oldCrosshairX = crosshairX;
   oldCrosshairY = crosshairY;
 
-  pinMode(1,INPUT_PULLUP);
+  pinMode(3,INPUT_PULLUP);
   pinMode(4,INPUT_PULLUP);
 
   tv.fill(0);
@@ -318,21 +318,21 @@ if(oldvalY != valY||oldvalX != valX)
 void changeInputStandard()
 {
  if(digitalRead(4)==HIGH)
- tv.begin(PAL, W, H);
- else if(digitalRead(4)==LOW) 
  tv.begin(NTSC, W, H);
+ else if(digitalRead(4)==LOW) 
+ tv.begin(PAL, W, H);
 }
 
  void Keystroke(){
   delay(10);
-    if(digitalRead(1)==LOW)
+    if(digitalRead(3)==LOW)
      {
-       duration = pulseIn(1, LOW);
+       duration = pulseIn(3, LOW);
        if(duration<=2000000)
        funswitchCrosshair();
        else if(duration>=5000000)
        InitAccurateHeart();//长按5秒进入校准
-                  while(digitalRead(1)==LOW)
+                  while(digitalRead(3)==LOW)
            {
             delay(1);
            }
