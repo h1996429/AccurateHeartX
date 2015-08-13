@@ -90,7 +90,6 @@ ISR(INT1_vect){
            switchCrosshair=1;
            EEPROM.update(0, switchCrosshair);
            tv.fill(0);
-           tv.delay_frame(1);
            delay(10);
        }//短按进入切换准心
        
