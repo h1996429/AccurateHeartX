@@ -83,8 +83,11 @@ ISR(INT1_vect){
    delay(10);
     if(digitalRead(3)==LOW)
      {
-       duration = pulseIn(3, LOW, 10000000);
-       if(duration<=2000000 && duration>0){
+       while(digitalRead(3)==LOW){
+        delay(1);
+        duration++;
+       }
+       if(duration<=2000 && duration>0){
          if(switchCrosshair>=1&&switchCrosshair<CROSSHAIRNUM)
            switchCrosshair++;
            else if(switchCrosshair==CROSSHAIRNUM)
@@ -92,25 +95,23 @@ ISR(INT1_vect){
            EEPROM.update(0, switchCrosshair);
            cleandraw = 1;
            tv.fill(0);
+           duration=0;
            delay(10);
        }//短按进入切换准心
        
-       else if(duration>=5000000){
+       else if(duration>=5000 && duration<=10000){
            DeviationY=511-analogRead(A0);
            DeviationX=511-analogRead(A1);
            EEPROM.write(1,DeviationX);
            EEPROM.write(2,DeviationY);//电位器输出的偏移值
+           duration=0;
            delay(10);
-           tv.delay_frame(1);
        }
        //长按5秒进入校准
-       else if(duration==0){
-        
+       else if(duration>10000){
+           duration=0;
        }
-            while(digitalRead(3)==LOW)
-           {
-            delay(1);
-           }
+           
      }
 }
 
