@@ -13,7 +13,6 @@ TVout tv;
 byte oldCrosshairX, oldCrosshairY;
 byte crosshairX, crosshairY;
 byte switchCrosshair = 1;
-byte textloop = 0;
 byte crosshairchange = 0;
 byte cleandraw = 0;
 int DeviationX = 0;
@@ -21,6 +20,7 @@ int DeviationY = 0;
 unsigned long duration;
 
 void setup() {
+  byte textloop = 0;
   changeInputStandard();//切换输入制式需要关机后拨动开关，默认开关低电平为NTSC制式
   initOverlay();
   tv.select_font(font6x8);
@@ -99,7 +99,10 @@ ISR(INT1_vect){
            delay(10);
        }//短按进入切换准心
        
-       else if(duration>=5000 && duration<=10000){
+       else if(duration>=5000 && duration<=20000){
+           while(1){
+            tv.print(17, 87, textpuremode);//测试是否管用
+           }
            DeviationY=511-analogRead(A0);
            DeviationX=511-analogRead(A1);
            EEPROM.write(1,DeviationX);
@@ -108,7 +111,7 @@ ISR(INT1_vect){
            delay(10);
        }
        //长按5秒进入校准
-       else if(duration>10000){
+       else if(duration>20000){
            duration=0;
        }
            
@@ -325,10 +328,10 @@ void Crosshair7() {
 }
 
 void emptyCrosshair(){
-  if(textloop == 0){
-    textloop++;
+  if(textloop==0){
+    textloop ＝ 1;
     tv.print(17, 87, textpuremode);
-    delay(2000);
+    delay(200);
     }
   }
 
