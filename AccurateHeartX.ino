@@ -83,25 +83,28 @@ ISR(INT1_vect){
     if(digitalRead(3)==LOW)
      {
        duration = pulseIn(3, LOW);
-       if(duration<=2000000){
-         if(switchCrosshair>=1&&switchCrosshair<7)
+       if(duration<=2000){
+         if(switchCrosshair>=1&&switchCrosshair<CROSSHAIRNUM)
            switchCrosshair++;
-           else if(switchCrosshair==7)
+           else if(switchCrosshair==CROSSHAIRNUM)
            switchCrosshair=1;
            EEPROM.update(0, switchCrosshair);
+           tv.delay_frame(1);
            tv.fill(0);
+           tv.delay_frame(1);
            delay(10);
        }//短按进入切换准心
        
-       else if(duration>=5000000){
+       else if(duration>=5000){
            DeviationY=511-analogRead(A0);
            DeviationX=511-analogRead(A1);
            EEPROM.write(1,DeviationX);
            EEPROM.write(2,DeviationY);//电位器输出的偏移值
            delay(10);
+           tv.delay_frame(1);
        }
        //长按5秒进入校准
-                  while(digitalRead(3)==LOW)
+            while(digitalRead(3)==LOW)
            {
             delay(1);
            }
@@ -190,23 +193,23 @@ void Crosshair3() {
   tv.draw_line(oldCrosshairX-1,oldCrosshairY+20,oldCrosshairX-1,H, 0);
   tv.draw_line(oldCrosshairX-1,oldCrosshairY-20,oldCrosshairX-1,0, 0);
 
-  tv.draw_line(oldCrosshairX-8,oldCrosshairY-1,oldCrosshairX-8,oldCrosshairY-3, 1);
-  tv.draw_line(oldCrosshairX-8,oldCrosshairY+1,oldCrosshairX-8,oldCrosshairY+3, 1);
-  tv.draw_line(oldCrosshairX+8,oldCrosshairY-1,oldCrosshairX-8,oldCrosshairY-3, 1);
-  tv.draw_line(oldCrosshairX+8,oldCrosshairY+1,oldCrosshairX-8,oldCrosshairY+3, 1);
-  tv.draw_line(oldCrosshairX-1,oldCrosshairY-8,oldCrosshairX-1,oldCrosshairY-8, 1);
-  tv.draw_line(oldCrosshairX+1,oldCrosshairY-8,oldCrosshairX+1,oldCrosshairY-8, 1);
-  tv.draw_line(oldCrosshairX-1,oldCrosshairY+8,oldCrosshairX-1,oldCrosshairY+8, 1);
-  tv.draw_line(oldCrosshairX+1,oldCrosshairY+8,oldCrosshairX+1,oldCrosshairY+8, 1);
+  tv.draw_line(oldCrosshairX-8,oldCrosshairY-1,oldCrosshairX-8,oldCrosshairY-3, 0);
+  tv.draw_line(oldCrosshairX-8,oldCrosshairY+1,oldCrosshairX-8,oldCrosshairY+3, 0);
+  tv.draw_line(oldCrosshairX+8,oldCrosshairY-1,oldCrosshairX-8,oldCrosshairY-3, 0);
+  tv.draw_line(oldCrosshairX+8,oldCrosshairY+1,oldCrosshairX-8,oldCrosshairY+3, 0);
+  tv.draw_line(oldCrosshairX-1,oldCrosshairY-8,oldCrosshairX-1,oldCrosshairY-8, 0);
+  tv.draw_line(oldCrosshairX+1,oldCrosshairY-8,oldCrosshairX+1,oldCrosshairY-8, 0);
+  tv.draw_line(oldCrosshairX-1,oldCrosshairY+8,oldCrosshairX-1,oldCrosshairY+8, 0);
+  tv.draw_line(oldCrosshairX+1,oldCrosshairY+8,oldCrosshairX+1,oldCrosshairY+8, 0);
 
-  tv.draw_line(oldCrosshairX-20,oldCrosshairY-2,oldCrosshairX-20,oldCrosshairY-5, 1);
-  tv.draw_line(oldCrosshairX-20,oldCrosshairY+2,oldCrosshairX-20,oldCrosshairY+5, 1);
-  tv.draw_line(oldCrosshairX+20,oldCrosshairY-2,oldCrosshairX-20,oldCrosshairY-5, 1);
-  tv.draw_line(oldCrosshairX+20,oldCrosshairY+2,oldCrosshairX-20,oldCrosshairY+5, 1);
-  tv.draw_line(oldCrosshairX-2,oldCrosshairY-20,oldCrosshairX-5,oldCrosshairY-20, 1);
-  tv.draw_line(oldCrosshairX+2,oldCrosshairY-20,oldCrosshairX+5,oldCrosshairY-20, 1);
-  tv.draw_line(oldCrosshairX-2,oldCrosshairY+20,oldCrosshairX-5,oldCrosshairY+20, 1);
-  tv.draw_line(oldCrosshairX+2,oldCrosshairY+20,oldCrosshairX+5,oldCrosshairY+20, 1);
+  tv.draw_line(oldCrosshairX-20,oldCrosshairY-2,oldCrosshairX-20,oldCrosshairY-5, 0);
+  tv.draw_line(oldCrosshairX-20,oldCrosshairY+2,oldCrosshairX-20,oldCrosshairY+5, 0);
+  tv.draw_line(oldCrosshairX+20,oldCrosshairY-2,oldCrosshairX-20,oldCrosshairY-5, 0);
+  tv.draw_line(oldCrosshairX+20,oldCrosshairY+2,oldCrosshairX-20,oldCrosshairY+5, 0);
+  tv.draw_line(oldCrosshairX-2,oldCrosshairY-20,oldCrosshairX-5,oldCrosshairY-20, 0);
+  tv.draw_line(oldCrosshairX+2,oldCrosshairY-20,oldCrosshairX+5,oldCrosshairY-20, 0);
+  tv.draw_line(oldCrosshairX-2,oldCrosshairY+20,oldCrosshairX-5,oldCrosshairY+20, 0);
+  tv.draw_line(oldCrosshairX+2,oldCrosshairY+20,oldCrosshairX+5,oldCrosshairY+20, 0);
   
   
   
@@ -235,8 +238,8 @@ void Crosshair3() {
 
   tv.draw_line(crosshairX-20,crosshairY-2,crosshairX-20,crosshairY-5, 1);
   tv.draw_line(crosshairX-20,crosshairY+2,crosshairX-20,crosshairY+5, 1);
-  tv.draw_line(crosshairX+20,crosshairY-2,crosshairX-20,crosshairY-5, 1);
-  tv.draw_line(crosshairX+20,crosshairY+2,crosshairX-20,crosshairY+5, 1);
+  tv.draw_line(crosshairX+20,crosshairY-2,crosshairX+20,crosshairY-5, 1);
+  tv.draw_line(crosshairX+20,crosshairY+2,crosshairX+20,crosshairY+5, 1);
   tv.draw_line(crosshairX-2,crosshairY-20,crosshairX-5,crosshairY-20, 1);
   tv.draw_line(crosshairX+2,crosshairY-20,crosshairX+5,crosshairY-20, 1);
   tv.draw_line(crosshairX-2,crosshairY+20,crosshairX-5,crosshairY+20, 1);
@@ -286,11 +289,20 @@ void Crosshair5() {
 }
 
 void Crosshair6() {
+  if(crosshairX >= W-16)
+  crosshairX=W-16;
+  else if(crosshairX <= 16)
+  crosshairX=16;
+  else if(crosshairY <= 16 )
+  crosshairY=16;
+  
   tv.set_pixel(oldCrosshairX, oldCrosshairY, 0);
   tv.draw_circle(oldCrosshairX,oldCrosshairY,16,0);
   
+  
   tv.set_pixel(crosshairX, crosshairY, 1);
   tv.draw_circle(crosshairX,crosshairY,16,1);
+  
 }
 
 void emptyCrosshair(){
@@ -347,16 +359,6 @@ void changeInputStandard()
  tv.begin(PAL, W, H);
 }
  
- void funswitchCrosshair()
-   {
-    
-    }
-
- void InitAccurateHeart()
-   {
-
-      
-    }
 void drawbmp(int x, int y, const unsigned char * bmp,
            uint16_t i, uint8_t width, uint8_t lines) {
 
