@@ -202,8 +202,8 @@ void Crosshair3() {
 
   tv.draw_line(oldCrosshairX-8,oldCrosshairY-1,oldCrosshairX-8,oldCrosshairY-3, 0);
   tv.draw_line(oldCrosshairX-8,oldCrosshairY+1,oldCrosshairX-8,oldCrosshairY+3, 0);
-  tv.draw_line(oldCrosshairX+8,oldCrosshairY-1,oldCrosshairX-8,oldCrosshairY-3, 0);
-  tv.draw_line(oldCrosshairX+8,oldCrosshairY+1,oldCrosshairX-8,oldCrosshairY+3, 0);
+  tv.draw_line(oldCrosshairX+8,oldCrosshairY-1,oldCrosshairX+8,oldCrosshairY-3, 0);
+  tv.draw_line(oldCrosshairX+8,oldCrosshairY+1,oldCrosshairX+8,oldCrosshairY+3, 0);
   tv.draw_line(oldCrosshairX-1,oldCrosshairY-8,oldCrosshairX-1,oldCrosshairY-8, 0);
   tv.draw_line(oldCrosshairX+1,oldCrosshairY-8,oldCrosshairX+1,oldCrosshairY-8, 0);
   tv.draw_line(oldCrosshairX-1,oldCrosshairY+8,oldCrosshairX-1,oldCrosshairY+8, 0);
@@ -321,7 +321,7 @@ void Crosshair7() {
 }
 
 void emptyCrosshair(){
-  if(textloop = 0){
+  if(textloop == 0){
     textloop++;
     tv.delay_frame(1);
     tv.print(17, 87, textpuremode);
