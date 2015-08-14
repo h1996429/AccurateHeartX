@@ -21,6 +21,8 @@ int DeviationY = 0;
 unsigned long duration;
 
 void setup() {
+  Serial.begin(9600);
+  
   byte textloop = 0;
   changeInputStandard();//切换输入制式需要关机后拨动开关，默认开关低电平为NTSC制式
   initOverlay();
@@ -101,9 +103,7 @@ ISR(INT1_vect){
        }//短按进入切换准心
        
        else if(duration>=5000 && duration<=20000){           
-           while(1){
-           tv.print(17, 87, textpuremode);
-           }//测试是否管用
+           Serial.print("Hello world.");                 //测试是否管用
            DeviationY=511-analogRead(A0);
            DeviationX=511-analogRead(A1);
            EEPROM.write(1,DeviationX);
@@ -309,6 +309,8 @@ void Crosshair6() {
   else if(crosshairX <= 16)
   crosshairX=16;
   else if(crosshairY <= 16 )
+  crosshairY=16;
+  else if(crosshairY >= H-16 )
   crosshairY=16;
   
   tv.set_pixel(oldCrosshairX, oldCrosshairY, 0);
