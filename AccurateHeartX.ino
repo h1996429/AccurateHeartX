@@ -21,9 +21,6 @@ int DeviationY = 0;
 unsigned long duration;
 
 void setup() {
-  Serial.begin(9600); 
-
-  
   byte textloop = 0;
   changeInputStandard();//切换输入制式需要关机后拨动开关，默认开关低电平为NTSC制式
   initOverlay();
@@ -92,9 +89,6 @@ ISR(INT1_vect){
         duration++;
        }
        if(duration<=2000 && duration>0){
-           for(int a = 0;a<100;a++){
-           Serial.print("0");
-           }
          if(switchCrosshair>=1&&switchCrosshair<CROSSHAIRNUM)
            switchCrosshair++;
            else if(switchCrosshair==CROSSHAIRNUM)
@@ -106,31 +100,19 @@ ISR(INT1_vect){
            delay(10);
        }//短按进入切换准心
        
-       else if(duration>=5000 && duration<=20000){
-           for(int a = 0;a<100;a++){
-           Serial.print("1");
+       else if(duration>=5000 && duration<=20000){           
+           while(1){
+           tv.print(17, 87, textpuremode);
            }//测试是否管用
            DeviationY=511-analogRead(A0);
            DeviationX=511-analogRead(A1);
-           for(int a = 0;a<100;a++){
-           Serial.print("2");
-           }
            EEPROM.write(1,DeviationX);
            EEPROM.write(2,DeviationY);//电位器输出的偏移值
-           for(int a = 0;a<100;a++){
-           Serial.print("3");
-           }
            duration=0;
-           for(int a = 0;a<100;a++){
-           Serial.print("4");
-           }
            delay(10);
        }
        //长按5秒进入校准
        else if(duration>20000){
-           for(int a = 0;a<100;a++){
-           Serial.print("5");
-           }
            duration=0;
        }
            
