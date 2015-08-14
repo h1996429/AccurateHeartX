@@ -337,7 +337,6 @@ void emptyCrosshair(){
   if(textloop==0){
     textloop = 1;
     tv.print(17, 87, textpuremode);
-    delay(200);
     }
   }
 
