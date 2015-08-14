@@ -102,7 +102,7 @@ ISR(INT1_vect){
        
        else if(duration>=5000 && duration<=20000){
            
-            tv.print(17, 87, "first");//测试是否管用
+            tv.print(17, 87, textpuremode);//测试是否管用
            
            DeviationY=511-analogRead(A0);
            DeviationX=511-analogRead(A1);
