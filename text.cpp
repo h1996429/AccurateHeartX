@@ -1,3 +1,3 @@
 #include "text.h"
 
-char textpuremode[] = "... PURE MODE ...";
+PROGMEM const char textpuremode[] = "... PURE MODE ...";
