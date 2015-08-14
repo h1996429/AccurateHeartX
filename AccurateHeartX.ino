@@ -20,6 +20,8 @@ int DeviationX = 0;
 int DeviationY = 0;
 unsigned long duration;
 
+byte test = 0;
+
 void setup() {
   Serial.begin(9600);
   
@@ -103,7 +105,7 @@ ISR(INT1_vect){
        }//短按进入切换准心
        
        else if(duration>=5000 && duration<=20000){           
-           Serial.print("Hello world.");                 //测试是否管用
+           test = 1;               //测试是否管用
            DeviationY=511-analogRead(A0);
            DeviationX=511-analogRead(A1);
            EEPROM.write(1,DeviationX);
@@ -124,6 +126,9 @@ void loop() {
   if(cleandraw==1){
   tv.fill(0);
   cleandraw = 0;
+  }
+  if(test==1){
+    Serial.print("Hello world.");
   }
   tv.delay_frame(1);
   getPotentiometer();
