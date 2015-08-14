@@ -18,13 +18,9 @@ byte textloop = 0;
 byte cleandraw = 0;
 int DeviationX = 0;
 int DeviationY = 0;
-unsigned long duration;
 
-byte test = 0;
 
 void setup() {
-  Serial.begin(9600);
-  
   byte textloop = 0;
   changeInputStandard();//切换输入制式需要关机后拨动开关，默认开关低电平为NTSC制式
   initOverlay();
@@ -57,6 +53,7 @@ void setup() {
 
   pinMode(3,INPUT_PULLUP);
   pinMode(4,INPUT_PULLUP);
+  pinMode(5,INPUT_PULLUP);
 
   tv.fill(0);
   
@@ -88,11 +85,7 @@ ISR(INT1_vect){
    delay(10);
     if(digitalRead(3)==LOW)
      {
-       while(digitalRead(3)==LOW){
-        delay(1);
-        duration++;
-       }
-       if(duration<=2000 && duration>0){
+
          if(switchCrosshair>=1&&switchCrosshair<CROSSHAIRNUM)
            switchCrosshair++;
            else if(switchCrosshair==CROSSHAIRNUM)
@@ -100,26 +93,12 @@ ISR(INT1_vect){
            EEPROM.update(0, switchCrosshair);
            cleandraw = 1;
            tv.fill(0);
-           duration=0;
            delay(10);
-       }//短按进入切换准心
-       
-       else if(duration>=5000 && duration<=20000){           
-           test = 1;               //测试是否管用
-           DeviationY=511-analogRead(A0);
-           DeviationX=511-analogRead(A1);
-           EEPROM.write(1,DeviationX);
-           EEPROM.write(2,DeviationY);//电位器输出的偏移值
-           duration=0;
-           delay(10);
-       }
-       //长按5秒进入校准
-       else if(duration>20000){
-           duration=0;
-       }
-           
+      }
+      while(digitalRead(3)==LOW){
+        delay(1);
+       }        
      }
-}
 
 void loop() {
   drawCrosshair();
@@ -127,9 +106,7 @@ void loop() {
   tv.fill(0);
   cleandraw = 0;
   }
-  if(test==1){
-    Serial.print("Hello world.");
-  }
+  initcrosshair();
   tv.delay_frame(1);
   getPotentiometer();
   
@@ -339,6 +316,7 @@ void emptyCrosshair(){
   if(textloop==0){
     textloop = 1;
     tv.print(17, 87, textpuremode);
+    delay(100);
     }
   }
 
@@ -385,6 +363,16 @@ void changeInputStandard()
  tv.begin(NTSC, W, H);
  else if(digitalRead(4)==LOW) 
  tv.begin(PAL, W, H);
+}
+
+void initcrosshair(){
+      if(digitalRead(5)==LOW){
+           DeviationY=511-analogRead(A0);
+           DeviationX=511-analogRead(A1);
+           EEPROM.write(1,DeviationX);
+           EEPROM.write(2,DeviationY);//电位器输出的偏移值
+           delay(10);
+      }
 }
  
 void drawbmp(int x, int y, const unsigned char * bmp,
