@@ -14,6 +14,7 @@ byte oldCrosshairX, oldCrosshairY;
 byte crosshairX, crosshairY;
 byte switchCrosshair = 1;
 byte crosshairchange = 0;
+byte textloop = 0;
 byte cleandraw = 0;
 int DeviationX = 0;
 int DeviationY = 0;
@@ -100,13 +101,18 @@ ISR(INT1_vect){
        }//短按进入切换准心
        
        else if(duration>=5000 && duration<=20000){
-           while(1){
-            tv.print(17, 87, textpuremode);//测试是否管用
-           }
+           
+            tv.print(17, 87, "first");//测试是否管用
+           
            DeviationY=511-analogRead(A0);
            DeviationX=511-analogRead(A1);
            EEPROM.write(1,DeviationX);
            EEPROM.write(2,DeviationY);//电位器输出的偏移值
+           tv.print(17, 57, EEPROM.read(1));
+           tv.print(17, 37, EEPROM.read(2));
+           while(1){
+            delay(1);
+           }
            duration=0;
            delay(10);
        }
@@ -329,7 +335,7 @@ void Crosshair7() {
 
 void emptyCrosshair(){
   if(textloop==0){
-    textloop ＝ 1;
+    textloop = 1;
     tv.print(17, 87, textpuremode);
     delay(200);
     }
