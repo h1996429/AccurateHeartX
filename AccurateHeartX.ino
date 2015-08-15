@@ -366,12 +366,15 @@ void changeInputStandard()
 }
 
 void initcrosshair(){
+      if(digitalRead(5)==HIGH){
+      delay(10);
       if(digitalRead(5)==LOW){
            DeviationY=511-analogRead(A0);
            DeviationX=511-analogRead(A1);
            EEPROM.write(1,DeviationX);
            EEPROM.write(2,DeviationY);//电位器输出的偏移值
            delay(10);
+      }
       }
 }
  
