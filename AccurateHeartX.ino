@@ -21,6 +21,8 @@ int DeviationY = 0;
 
 
 void setup() {
+  Serial.begin(9600);
+  
   byte textloop = 0;
   changeInputStandard();//切换输入制式需要关机后拨动开关，默认开关低电平为NTSC制式
   initOverlay();
@@ -107,6 +109,8 @@ void loop() {
   cleandraw = 0;
   }
   initcrosshair();
+  Serial.println(DeviationX);
+  Serial.println(DeviationY);
   tv.delay_frame(1);
   getPotentiometer();
   
@@ -373,6 +377,9 @@ void initcrosshair(){
            DeviationX=511-analogRead(A1);
            EEPROM.write(1,DeviationX);
            EEPROM.write(2,DeviationY);//电位器输出的偏移值
+           Serial.println(DeviationX);
+           Serial.println(DeviationY);
+           while(digitalRead(5)==LOW)
            delay(10);
       }
       }
