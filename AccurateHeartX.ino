@@ -323,8 +323,8 @@ void emptyCrosshair(){
 void getPotentiometer(){
   valY = analogRead(A0)+DeviationY;
   valX = analogRead(A1)+DeviationX;
-  valX = map(valX,DeviationX,1023+DeviationX,0,W);
-  valY = map(valY,DeviationY,1023+DeviationY,0,H);
+  valX = map(valX,0,1023,0,W);
+  valY = map(valY,0,1023,0,H);
   
   oldCrosshairX = crosshairX;
   oldCrosshairY = crosshairY;
@@ -371,8 +371,8 @@ void initcrosshair(){
       if(digitalRead(5)==LOW){
            DeviationY = 511-analogRead(A0);
            DeviationX = 511-analogRead(A1);
-//           EEPROM.write(1,DeviationX);
-//           EEPROM.write(2,DeviationY);//电位器输出的偏移值
+           EEPROM.write(1,DeviationX);
+           EEPROM.write(2,DeviationY);//电位器输出的偏移值
            while(digitalRead(5)==LOW)
            delay(10);
       }
