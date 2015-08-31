@@ -39,8 +39,8 @@ void setup() {
 
   valY = analogRead(A0)+DeviationY;
   valX = analogRead(A1)+DeviationX;
-  valY = map(valY,DeviationY,1023+DeviationY,0,W);
-  valX = map(valX,DeviationX,1023+DeviationX,0,H);
+  valY = map(valY,0,1023,0,W);
+  valX = map(valX,0,1023,0,H);
 
   oldvalY = valY;
   oldvalX = valX;
