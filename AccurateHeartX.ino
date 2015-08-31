@@ -320,11 +320,7 @@ void emptyCrosshair(){
     }
   }
 
-void getPotentiometer(){
-  DeviationX=EEPROM.read(1);
-  DeviationY=EEPROM.read(2);
-//读取EEPROM
-  
+void getPotentiometer(){  
   valY = analogRead(A0)+DeviationY;
   valX = analogRead(A1)+DeviationX;
   valX = map(valX,0,1023,0,W);
