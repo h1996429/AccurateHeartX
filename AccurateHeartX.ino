@@ -26,11 +26,11 @@ void setup() {
   initOverlay();
   tv.select_font(font6x8);
   
-  if(EEPROM.read(0)==255){
+/*  if(EEPROM.read(0)==255){
     EEPROM.write(0,switchCrosshair);
     EEPROM.write(1,DeviationX);
     EEPROM.write(2,DeviationY);   
-  }
+  }*/
 //初始化
   switchCrosshair=EEPROM.read(0);
   DeviationX=EEPROM.read(1);
