@@ -198,19 +198,19 @@ void Crosshair3() {
   tv.draw_line(oldCrosshairX-8,oldCrosshairY+1,oldCrosshairX-8,oldCrosshairY+3, 0);
   tv.draw_line(oldCrosshairX+8,oldCrosshairY-1,oldCrosshairX+8,oldCrosshairY-3, 0);
   tv.draw_line(oldCrosshairX+8,oldCrosshairY+1,oldCrosshairX+8,oldCrosshairY+3, 0);
-  tv.draw_line(oldCrosshairX-1,oldCrosshairY-8,oldCrosshairX-1,oldCrosshairY-8, 0);
-  tv.draw_line(oldCrosshairX+1,oldCrosshairY-8,oldCrosshairX+1,oldCrosshairY-8, 0);
-  tv.draw_line(oldCrosshairX-1,oldCrosshairY+8,oldCrosshairX-1,oldCrosshairY+8, 0);
-  tv.draw_line(oldCrosshairX+1,oldCrosshairY+8,oldCrosshairX+1,oldCrosshairY+8, 0);
+  tv.draw_line(oldCrosshairX-1,oldCrosshairY-8,oldCrosshairX-3,oldCrosshairY-8, 0);
+  tv.draw_line(oldCrosshairX+1,oldCrosshairY-8,oldCrosshairX+3,oldCrosshairY-8, 0);
+  tv.draw_line(oldCrosshairX-1,oldCrosshairY+8,oldCrosshairX-3,oldCrosshairY+8, 0);
+  tv.draw_line(oldCrosshairX+1,oldCrosshairY+8,oldCrosshairX+3,oldCrosshairY+8, 0);
 
-  tv.draw_line(oldCrosshairX-20,oldCrosshairY-2,oldCrosshairX-20,oldCrosshairY-5, 0);
-  tv.draw_line(oldCrosshairX-20,oldCrosshairY+2,oldCrosshairX-20,oldCrosshairY+5, 0);
-  tv.draw_line(oldCrosshairX+20,oldCrosshairY-2,oldCrosshairX+20,oldCrosshairY-5, 0);
-  tv.draw_line(oldCrosshairX+20,oldCrosshairY+2,oldCrosshairX+20,oldCrosshairY+5, 0);
-  tv.draw_line(oldCrosshairX-2,oldCrosshairY-20,oldCrosshairX-5,oldCrosshairY-20, 0);
-  tv.draw_line(oldCrosshairX+2,oldCrosshairY-20,oldCrosshairX+5,oldCrosshairY-20, 0);
-  tv.draw_line(oldCrosshairX-2,oldCrosshairY+20,oldCrosshairX-5,oldCrosshairY+20, 0);
-  tv.draw_line(oldCrosshairX+2,oldCrosshairY+20,oldCrosshairX+5,oldCrosshairY+20, 0);
+  tv.draw_line(oldCrosshairX-20,oldCrosshairY-1,oldCrosshairX-20,oldCrosshairY-5, 0);
+  tv.draw_line(oldCrosshairX-20,oldCrosshairY+1,oldCrosshairX-20,oldCrosshairY+5, 0);
+  tv.draw_line(oldCrosshairX+20,oldCrosshairY-1,oldCrosshairX+20,oldCrosshairY-5, 0);
+  tv.draw_line(oldCrosshairX+20,oldCrosshairY+1,oldCrosshairX+20,oldCrosshairY+5, 0);
+  tv.draw_line(oldCrosshairX-1,oldCrosshairY-20,oldCrosshairX-5,oldCrosshairY-20, 0);
+  tv.draw_line(oldCrosshairX+1,oldCrosshairY-20,oldCrosshairX+5,oldCrosshairY-20, 0);
+  tv.draw_line(oldCrosshairX-1,oldCrosshairY+20,oldCrosshairX-5,oldCrosshairY+20, 0);
+  tv.draw_line(oldCrosshairX+1,oldCrosshairY+20,oldCrosshairX+5,oldCrosshairY+20, 0);
   
   
   
@@ -232,19 +232,19 @@ void Crosshair3() {
   tv.draw_line(crosshairX-8,crosshairY+1,crosshairX-8,crosshairY+3, 1);
   tv.draw_line(crosshairX+8,crosshairY-1,crosshairX+8,crosshairY-3, 1);
   tv.draw_line(crosshairX+8,crosshairY+1,crosshairX+8,crosshairY+3, 1);
-  tv.draw_line(crosshairX-1,crosshairY-8,crosshairX-1,crosshairY-8, 1);
-  tv.draw_line(crosshairX+1,crosshairY-8,crosshairX+1,crosshairY-8, 1);
-  tv.draw_line(crosshairX-1,crosshairY+8,crosshairX-1,crosshairY+8, 1);
-  tv.draw_line(crosshairX+1,crosshairY+8,crosshairX+1,crosshairY+8, 1);
+  tv.draw_line(crosshairX-1,crosshairY-8,crosshairX-3,crosshairY-8, 1);
+  tv.draw_line(crosshairX+1,crosshairY-8,crosshairX+3,crosshairY-8, 1);
+  tv.draw_line(crosshairX-1,crosshairY+8,crosshairX-3,crosshairY+8, 1);
+  tv.draw_line(crosshairX+1,crosshairY+8,crosshairX+3,crosshairY+8, 1);
 
-  tv.draw_line(crosshairX-20,crosshairY-2,crosshairX-20,crosshairY-5, 1);
-  tv.draw_line(crosshairX-20,crosshairY+2,crosshairX-20,crosshairY+5, 1);
-  tv.draw_line(crosshairX+20,crosshairY-2,crosshairX+20,crosshairY-5, 1);
-  tv.draw_line(crosshairX+20,crosshairY+2,crosshairX+20,crosshairY+5, 1);
-  tv.draw_line(crosshairX-2,crosshairY-20,crosshairX-5,crosshairY-20, 1);
-  tv.draw_line(crosshairX+2,crosshairY-20,crosshairX+5,crosshairY-20, 1);
-  tv.draw_line(crosshairX-2,crosshairY+20,crosshairX-5,crosshairY+20, 1);
-  tv.draw_line(crosshairX+2,crosshairY+20,crosshairX+5,crosshairY+20, 1);
+  tv.draw_line(crosshairX-20,crosshairY-1,crosshairX-20,crosshairY-5, 1);
+  tv.draw_line(crosshairX-20,crosshairY+1,crosshairX-20,crosshairY+5, 1);
+  tv.draw_line(crosshairX+20,crosshairY-1,crosshairX+20,crosshairY-5, 1);
+  tv.draw_line(crosshairX+20,crosshairY+1,crosshairX+20,crosshairY+5, 1);
+  tv.draw_line(crosshairX-1,crosshairY-20,crosshairX-5,crosshairY-20, 1);
+  tv.draw_line(crosshairX+1,crosshairY-20,crosshairX+5,crosshairY-20, 1);
+  tv.draw_line(crosshairX-1,crosshairY+20,crosshairX-5,crosshairY+20, 1);
+  tv.draw_line(crosshairX+1,crosshairY+20,crosshairX+5,crosshairY+20, 1);
 }
 
 void Crosshair4() {
