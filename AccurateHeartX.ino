@@ -111,6 +111,7 @@ void loop() {
   initcrosshair();
   Serial.println(DeviationX);
   Serial.println(DeviationY);
+  Serial.println("hello world");
   tv.delay_frame(1);
   getPotentiometer();
   
