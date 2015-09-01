@@ -180,7 +180,7 @@ void Crosshair2() {
 }
 
 void Crosshair3() {
-  tv.draw_line(oldCrosshairX-2,oldCrosshairY,0,oldCrosshairY, 0);
+  tv.draw_line(oldCrosshairX-1,oldCrosshairY,0,oldCrosshairY, 0);
   tv.draw_line(oldCrosshairX+2,oldCrosshairY,W,oldCrosshairY, 0);
   tv.draw_line(oldCrosshairX,oldCrosshairY-2,oldCrosshairX,0, 0);
   tv.draw_line(oldCrosshairX,oldCrosshairY+2,oldCrosshairX,H, 0);
@@ -214,7 +214,7 @@ void Crosshair3() {
   
   
   
-  tv.draw_line(crosshairX-2,crosshairY,0,crosshairY, 1);
+  tv.draw_line(crosshairX-1,crosshairY,0,crosshairY, 1);
   tv.draw_line(crosshairX+2,crosshairY,W,crosshairY, 1);
   tv.draw_line(crosshairX,crosshairY-2,crosshairX,0, 1);
   tv.draw_line(crosshairX,crosshairY+2,crosshairX,H, 1);
