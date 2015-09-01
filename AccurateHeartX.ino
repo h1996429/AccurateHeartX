@@ -103,9 +103,6 @@ ISR(INT1_vect){
 void loop() {
   crosshairX = valX;
   crosshairY = valY;
-
-  oldCrosshairX = crosshairX;
-  oldCrosshairY = crosshairY;
   
   drawCrosshair();
   if(cleandraw==1){
